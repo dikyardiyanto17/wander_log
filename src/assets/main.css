@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+
+}
+
+.background-container {
+  min-height: 100vh;
+  min-height: 100vh;
+  max-width: 100vw;
+  min-width: 100vw;
+}
+
+.dark-mode {
+  color: #f0f0f0;
+  background-color: #000000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transition: 1s;
+}
+
+.light-mode {
+  background-color: #f0f0f0;
+  color: #000000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transition: 1s;
+}
+
+.dark-background-1 {
+  background-image: url('@/myassets/backgrounds/dark_1.jpg');
+}
+
+.light-background-1 {
+  background-image: url('@/myassets/backgrounds/light_1.jpg');
+}
+
+.dark-background-2 {
+  background-image: url('@/myassets/backgrounds/dark_2.jpg');
+}
+
+.light-background-2 {
+  background-image: url('@/myassets/backgrounds/light_2.jpg');
+}
+
+.dark-background-3 {
+  background-image: url('@/myassets/backgrounds/dark_3.jpg');
+}
+
+.light-background-3 {
+  background-image: url('@/myassets/backgrounds/light_3.jpg');
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(70, 251, 223, 0.7);
+  border-radius: 10px;
+  border: 1px solid transparent;
+}

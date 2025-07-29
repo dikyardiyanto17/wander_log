@@ -1,0 +1,842 @@
+.custom-container {
+    width: 100vw;
+    padding: 0 20px;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+    height: calc(100vh - 60px);
+    overflow: hidden;
+    position: relative;
+}
+
+.add-Travel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    gap: 10px;
+}
+
+.comment-header>form {
+    display: inline-block;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: none;
+}
+
+.comment-header>form>button {
+    all: unset;
+    cursor: pointer;
+    font-size: inherit;
+    color: inherit;
+}
+
+.dark-mode .comment-wrapper {
+    margin: 10px 0;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 4;
+    background-color: #1f1f1f;
+    padding: 6px 0;
+    width: 150px;
+    font-weight: 500;
+    border-radius: 5px;
+    backdrop-filter: blur(3px);
+    border: 1px solid #1f1f1f;
+    box-shadow: 0 -2px 12px rgb(255, 255, 255);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+    justify-content: center;
+    display: none;
+}
+
+.dark-mode .comment-wrapper:hover {
+    box-shadow: 0 6px 14px rgba(255, 255, 255, 0.3);
+    background-color: #ffffff;
+    color: black;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    z-index: 5;
+}
+
+.toggle-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+}
+
+#comment-toogle {
+    display: none;
+}
+
+.comment-wrapper:has(input[type="checkbox"]:checked)~.comment-container {
+    right: 0;
+    top: 0;
+}
+
+input[type="checkbox"] {
+    accent-color: #007bff;
+}
+
+.travel-footer {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+}
+
+.travel-footer button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+
+.travel-footer button:hover {
+    color: #ff5a5f;
+}
+
+.travel-picture {
+    height: 70%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.travel-picture>img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.travel-description {
+    height: 30%;
+    width: 100%;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    flex-direction: column;
+}
+
+.dark-mode .travel-card>.travel-content {
+    height: 200px;
+    border-radius: 15px;
+    border: 1px solid #ffffff63;
+    background-color: #1f1f1f89;
+    color: #f0f0f0;
+    transition: 1s;
+    width: 100%;
+    cursor: pointer;
+}
+
+.light-mode .travel-card>.travel-content {
+    height: 200px;
+    border-radius: 15px;
+    border: 1px solid #1f1f1f;
+    background-color: #fdfdfd89;
+    color: #000000;
+    transition: 1s;
+    width: 100%;
+    cursor: pointer;
+}
+
+.dark-mode .travel-container,
+.dark-mode .comment-container {
+    border: 1px solid #ffffff;
+    background-color: #1f1f1f89;
+    color: #f0f0f0;
+    box-shadow: 0 4px 12px rgb(255, 255, 255);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+    transition: 1s;
+    height: 100%;
+    overflow: auto;
+}
+
+.travel-container {
+    width: 600px;
+    padding: 30px 20px;
+}
+
+.travel-container>p>img {
+    max-width: 100%;
+    padding: 30px 20px;
+}
+
+.travel-container>.header-travel {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.comment-container {
+    width: 500px;
+}
+
+.comment-container>form>div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.comment-container textarea {
+    width: 100% !important;
+}
+
+.dark-mode .travel-card {
+    height: 400px;
+    position: relative;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 30px 20px;
+}
+
+.dark-mode .travel-header {
+    gap: 10px;
+    display: flex;
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    background-color: #1f1f1f83;
+    max-width: 80%;
+    padding: 6px 10px;
+    font-weight: 500;
+    border-radius: 5px;
+    backdrop-filter: blur(1px);
+    border: 1px solid #1f1f1f;
+    box-shadow: -1px -1px 1px rgb(255, 255, 255);
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.dark-mode .travel-footer {
+    position: absolute;
+    bottom: 15px;
+    left: 40px;
+    background-color: #1f1f1f83;
+    padding: 6px 10px;
+    font-weight: 500;
+    border-radius: 5px;
+    backdrop-filter: blur(1px);
+    border: 1px solid #1f1f1f;
+    box-shadow: -1px -1px 1px rgb(255, 255, 255);
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.dark-mode .travel-card .travel-content {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.comment-container {
+    padding: 1rem;
+}
+
+.comment-box {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease;
+}
+
+.comment-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+}
+
+.comment-content {
+    flex: 1;
+}
+
+.comment-header {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 4px;
+}
+
+.comment-header strong {
+    color: inherit;
+}
+
+.comment-content p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* Light Mode */
+.light-mode .comment-box {
+    background-color: #fff;
+    color: #333;
+}
+
+.light-mode .comment-header {
+    color: #666;
+}
+
+/* Dark Mode */
+.dark-mode .comment-box {
+    background-color: #2c2c2c;
+    color: #eee;
+    margin-top: 10px;
+}
+
+.dark-mode .comment-header {
+    color: #aaa;
+}
+
+@media (max-width: 748px) {
+    .container-create, .custom-container {
+        height: calc(100vh - 100px);
+    }
+
+    .dark-mode .comment-wrapper {
+        display: flex !important;
+    }
+
+    .light-mode .comment-wrapper {
+        color: #ffffff;
+        display: flex !important;
+    }
+
+    .comment-container {
+        position: absolute;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        z-index: 3;
+    }
+
+    .travel-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .toggle-comments-btn {
+        display: block;
+    }
+
+    .light-mode .avatar {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+
+    .dark-mode .avatar {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+}
+
+.light-mode .comment-wrapper {
+    margin: 10px 0;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 4;
+    background-color: #1f1f1f;
+    padding: 6px 0;
+    width: 150px;
+    font-weight: 500;
+    border-radius: 5px;
+    backdrop-filter: blur(3px);
+    border: 1px solid #1f1f1f;
+    box-shadow: 0 -2px 12px rgb(255, 255, 255);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+    justify-content: center;
+    display: none;
+}
+
+.light-mode .comment-wrapper:hover {
+    box-shadow: 0 6px 14px rgba(255, 255, 255, 0.3);
+    background-color: #ffffff;
+    color: black;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    z-index: 5;
+}
+
+.light-mode .travel-container,
+.light-mode .comment-container {
+    border: 1px solid #ffffff;
+    background-color: #fdfdfd89;
+    color: #000000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.527);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+    transition: 1s;
+    height: 100%;
+    overflow: auto;
+}
+
+.light-mode .travel-card {
+    height: 400px;
+    position: relative;
+    border-bottom: 1px solid #000000;
+    padding: 30px 20px;
+}
+
+.light-mode .travel-header {
+    gap: 10px;
+    display: flex;
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    background-color: #fdfdfd89;
+    max-width: 80%;
+    padding: 6px 10px;
+    font-weight: 500;
+    border-radius: 5px;
+    backdrop-filter: blur(1px);
+    border: 1px solid #1f1f1f;
+    box-shadow: -1px -1px 1px rgb(255, 255, 255);
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+    color: #000000;
+}
+
+.light-mode .travel-footer {
+    position: absolute;
+    bottom: 15px;
+    left: 40px;
+    background-color: #fdfdfd89;
+    padding: 6px 10px;
+    font-weight: 500;
+    border-radius: 5px;
+    backdrop-filter: blur(1px);
+    border: 1px solid #1f1f1f;
+    box-shadow: -1px -1px 1px rgb(255, 255, 255);
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+    color: #000000;
+}
+
+.light-mode .travel-card .travel-content {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.comment-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+}
+
+.light-mode .comment-box {
+    background-color: #fff;
+    color: #333;
+}
+
+.light-mode .comment-header {
+    color: #666;
+}
+
+.light-mode .comment-box {
+    background-color: #2c2c2c;
+    color: #eee;
+    margin-top: 10px;
+}
+
+.light-mode .comment-header {
+    color: #aaa;
+}
+
+.container-create {
+    width: 100vw;
+    height: calc(100vh - 60px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-height: 100vw;
+    /* align-items: center; */
+}
+
+.preview-container {
+    position: absolute;
+    width: 100%;
+    max-height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    transition: 1s;
+    background-color: #00000063;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 6;
+    top: 0;
+    left: 0;
+}
+
+.preview-container.show {
+    top: 0;
+    z-index: 6;
+}
+
+.dark-mode .preview-content {
+    max-height: 100%;
+    width: 600px;
+    overflow: auto;
+    background-color: #00000050;
+    overflow: auto;
+}
+
+.light-mode .preview-content {
+    max-height: 100%;
+    max-width: 600px;
+    width: 600px;
+    overflow: auto;
+    background-color: #ffffff50;
+    overflow: auto;
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.button-container>button {
+    margin-right: 20px;
+}
+
+.container-create>input {
+    margin-bottom: 10px;
+}
+
+.dark-mode .note-toolbar {
+    background-color: #1f1f1f00;
+}
+
+.light-mode .note-toolbar {
+    background-color: #1f1f1f00;
+}
+
+.dark-mode .note-editable {
+    color: #ffffff !important;
+}
+
+.light-mode .note-editable {
+    color: #000000 !important;
+}
+
+.dark-mode .travel-input,
+.dark-mode .comment-input {
+    width: 90%;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1f1f1f58;
+    color: #f0f0f0;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    outline: none;
+    font-size: 1rem;
+}
+
+.dark-mode .travel-input::placeholder,
+.dark-mode .comment-input::placeholder {
+    color: #bbbbbb;
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+.dark-mode .travel-input:focus,
+.dark-mode .comment-input:focus {
+    transform: translateY(-4px) rotateX(3deg);
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.4);
+    background-color: #222;
+}
+
+.light-mode .travel-input,
+.light-mode .comment-input {
+    width: 90%;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f000;
+    color: #000000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    outline: none;
+    font-size: 1rem;
+}
+
+.light-mode .travel-input::placeholder,
+.light-mode .comment-input::placeholder {
+    color: #777777;
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+.light-mode .travel-input:focus,
+.light-mode .comment-input:focus {
+    transform: translateY(-4px) rotateX(3deg);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    background-color: #e6e6e6;
+}
+
+.toggle-wrapper-input {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding-left: 5px;
+}
+
+.toggle-label-input {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1rem;
+    user-select: none;
+    gap: 12px;
+}
+
+.toggle-label-input input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider-input {
+    position: relative;
+    width: 45px;
+    height: 24px;
+    background-color: #ccc;
+    border-radius: 50px;
+    transition: 0.4s;
+}
+
+.slider-input::before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+.toggle-label-input input:checked+.slider-input {
+    background-color: #2bd4c0;
+}
+
+.toggle-label-input input:checked+.slider-input::before {
+    transform: translateX(20px);
+}
+
+.label-text {
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.preview-content img {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.toggle-wrapper-input {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding-left: 5px;
+}
+
+.toggle-label-input {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1rem;
+    user-select: none;
+    gap: 12px;
+}
+
+.toggle-label-input input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider-input {
+    position: relative;
+    width: 45px;
+    height: 24px;
+    background-color: #ccc;
+    border-radius: 50px;
+    transition: 0.4s;
+}
+
+.slider-input::before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+.toggle-label-input input:checked+.slider-input {
+    background-color: #2bd4c0;
+}
+
+.toggle-label-input input:checked+.slider-input::before {
+    transform: translateX(20px);
+}
+
+.label-text {
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.light-mode .avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #4a90e2;
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.dark-mode .avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #2bd4c0;
+    color: #000;
+    border-radius: 50%;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.travel-content-detail {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.travel-content-detail img {
+    width: 100%;
+    max-width: 100%;
+    margin: 20px 0;
+}
+
+.light-mode .custom-date {
+    font-weight: bold;
+    border: 0.5px solid #000000;
+    padding: 7px;
+    border-radius: 10px;
+}
+
+.dark-mode .custom-date {
+    font-weight: bold;
+    border: 0.5px solid #ffffff;
+    padding: 7px;
+    border-radius: 10px;
+}
+
+.input-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.detail-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Light Mode Modal */
+.light-mode .modal-content {
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Mode Modal */
+.dark-mode .modal-content {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* Shared Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    padding: 24px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.modal-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
